@@ -9,7 +9,7 @@
 	<description>this is a tool project</description>
 
 	<properties>
-		<springframework.version>3.0.5.RELEASE</springframework.version>
+		<springframework.version>3.2.4.RELEASE</springframework.version>
 	</properties>
 
 	<dependencies>
@@ -21,6 +21,16 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 		<dependency>
