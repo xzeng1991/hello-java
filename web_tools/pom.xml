@@ -11,6 +11,9 @@
 	<properties>
 		<springframework.version>3.2.4.RELEASE</springframework.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
+		<json-lib.version>2.2.3</json-lib.version>
+		<fastjson-lib.version>1.1.37</fastjson-lib.version>
+		<commons-io.version>2.4</commons-io.version>
 	</properties>
 
 	<dependencies>
@@ -80,11 +83,45 @@
 		</dependency>
 		<!-- Servlet end -->
 		
+		<!-- json start -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>${json-lib.version}</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson-lib.version}</version>
+		</dependency>
+		<!-- json end -->
+		
 		<!-- apache common start -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.3</version>
+        </dependency>
+         <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.46</version>
+        </dependency>
+        <dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
 		</dependency>
 		<!-- apache common end -->
 		

@@ -79,7 +79,7 @@ public class MenuTag extends TagSupport {
 		if(style.equals("june_bootstrap")){
 			//builder.append(ListtoMenu.getBootstrapMenu(menuFun));
 		}
-		log.info("menu:{}", builder.toString());
+		//log.info("menu:{}", builder.toString());
 		
 		return builder.toString();
 	}
@@ -171,8 +171,6 @@ public class MenuTag extends TagSupport {
 		int menuLevel = function.getFunctionLevel() + 1;
 		String aTagStr = null;
 		if(StringUtils.isNotBlank(function.getFunctionUrl())&&function.getFunctionUrl().contains("?")){
-			menuString.append("&clickFunctionId=");
-			menuString.append( function.getFunctionId()) ;
 			aTagStr = String.format("<a onclick=\"addTab(\'%s\',\'%s&clickFunctionId=%s\')\" title=\"%s\" class=\"hide_%d\" url=\"%s\" href=\"#\" style=\"color:#3c3c3c;\">&nbsp;%s</a>", funName, function.getFunctionUrl(), function.getFunctionId(), funName, menuLevel, function.getFunctionUrl(), funName);
 		}else{
 			aTagStr = String.format("<a onclick=\"addTab(\'%s\',\'%s\')\" title=\"%s\" class=\"hide_%d\" url=\"%s\" href=\"#\" style=\"color:#3c3c3c;\">&nbsp;%s</a>", funName, function.getFunctionUrl(), funName, menuLevel, function.getFunctionUrl(), funName);

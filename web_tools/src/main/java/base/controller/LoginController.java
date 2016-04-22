@@ -1,13 +1,11 @@
-package springMVC.controller;
+package base.controller;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -94,7 +92,7 @@ public class LoginController {
 		SecFunction secFun = new SecFunction();
 		secFun.setFunctionId(1L);
 		secFun.setFunctionLevel(0);
-		secFun.setFunctionName("Spring MVC用例");
+		secFun.setFunctionName("系统管理");
 		secFun.setFunctionUrl("");
 		
 		funList.add(secFun);
@@ -111,9 +109,16 @@ public class LoginController {
 		secFun.setFunctionId(11L);
 		secFun.setParentFunctionId(1L);
 		secFun.setFunctionLevel(1);
-		secFun.setFunctionName("Spring MVC之映射请求");
-		secFun.setFunctionUrl("/demo/request/main.htm");
+		secFun.setFunctionName("用户管理");
+		secFun.setFunctionUrl("/web_tools/user.htm?userManager");
+		funList.add(secFun);
 		
+		secFun = new SecFunction();
+		secFun.setFunctionId(111L);
+		secFun.setParentFunctionId(1L);
+		secFun.setFunctionLevel(1);
+		secFun.setFunctionName("订单追踪");
+		secFun.setFunctionUrl("/web_tools/takeOrderController.htm?orderTracking");
 		funList.add(secFun);
 		
 		secFun = new SecFunction();
