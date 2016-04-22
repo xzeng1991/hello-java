@@ -89,27 +89,35 @@ public class LoginController {
 	
 	private List<SecFunction> querySecFunctionAll(){
 		List<SecFunction> funList = new ArrayList<SecFunction>();
+		// ======= 一级菜单 =========
 		SecFunction secFun = new SecFunction();
 		secFun.setFunctionId(1L);
 		secFun.setFunctionLevel(0);
 		secFun.setFunctionName("系统管理");
 		secFun.setFunctionUrl("");
-		
 		funList.add(secFun);
 		
 		secFun = new SecFunction();
 		secFun.setFunctionId(2L);
 		secFun.setFunctionLevel(0);
-		secFun.setFunctionName("一级菜单（2）");
+		secFun.setFunctionName("统计报表");
 		secFun.setFunctionUrl("");
-		
 		funList.add(secFun);
 		
+		// ======== 二级菜单 （一）=============
 		secFun = new SecFunction();
 		secFun.setFunctionId(11L);
 		secFun.setParentFunctionId(1L);
 		secFun.setFunctionLevel(1);
 		secFun.setFunctionName("用户管理");
+		secFun.setFunctionUrl("/web_tools/user.htm?userManager");
+		funList.add(secFun);
+		
+		secFun = new SecFunction();
+		secFun.setFunctionId(12L);
+		secFun.setParentFunctionId(1L);
+		secFun.setFunctionLevel(1);
+		secFun.setFunctionName("菜单管理");
 		secFun.setFunctionUrl("/web_tools/user.htm?userManager");
 		funList.add(secFun);
 		
@@ -121,14 +129,15 @@ public class LoginController {
 		secFun.setFunctionUrl("/web_tools/takeOrderController.htm?orderTracking");
 		funList.add(secFun);
 		
+		// ======== 二级菜单 （二）=============
 		secFun = new SecFunction();
 		secFun.setFunctionId(21L);
 		secFun.setParentFunctionId(2L);
 		secFun.setFunctionLevel(1);
-		secFun.setFunctionName("二级菜单（2）");
-		secFun.setFunctionUrl("");
-		
+		secFun.setFunctionName("报表一");
+		secFun.setFunctionUrl("reportController.htm?loadSecondLevelStationReport");
 		funList.add(secFun);
+		
 		secFun = new SecFunction();
 		secFun.setFunctionId(12L);
 		secFun.setParentFunctionId(1L);
