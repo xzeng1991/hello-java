@@ -83,6 +83,14 @@
 		</dependency>
 		<!-- Servlet end -->
 		
+		<!-- Redis start -->
+		<dependency>  
+        	<groupId>org.springframework.data</groupId>  
+        	<artifactId>spring-data-redis</artifactId>  
+        	<version>1.0.2.RELEASE</version>  
+    	</dependency>  
+		<!-- Redis end -->
+		
 		<!-- json start -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>

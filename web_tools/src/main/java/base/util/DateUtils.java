@@ -130,4 +130,14 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils{
 		calendar.add(Calendar.DAY_OF_MONTH, -1);
 		return calendar.getTime();
 	}
+	
+	/**
+	 * 格式化yyyyMMdd
+	 * add by xzeng 2016年5月16日
+	 * @param date
+	 * @return
+	 */
+	public static String formatDate(Date date){
+		return SDF_DATE_STYLE1.format(date);
+	}
 }
