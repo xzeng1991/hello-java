@@ -32,6 +32,21 @@
         <property name="testOnBorrow" value="${redis.testOnBorrow}" />  
     </bean>
     
+    <bean id="producerClient" class="com.feiniu.kafka.client.ProducerClient">
+		<constructor-arg index="0" value="${zookeeper.connect}" />
+		<constructor-arg index="1">
+			<props>
+				<prop key="key.serializer.class">kafka.serializer.StringEncoder</prop>
+				<prop key="serializer.class">com.feiniu.fcm.core.mq.serializer.SendMessagePoAvroEncoder
+				</prop>
+				<prop key="request.required.acks">${request.required.acks}</prop>
+				<prop key="zookeeper.connection.timeout.ms">100000</prop>
+				<prop key="producer.type">async</prop>
+				<prop key="batch.num.messages">500</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+    
     <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"  
         p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}"  p:pool-config-ref="poolConfig"/>  
       

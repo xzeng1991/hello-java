@@ -88,7 +88,32 @@
         	<groupId>org.springframework.data</groupId>  
         	<artifactId>spring-data-redis</artifactId>  
         	<version>1.0.2.RELEASE</version>  
-    	</dependency>  
+    	</dependency>
+    	<dependency>
+	    	<groupId>org.apache.kafka</groupId>
+	    	<artifactId>kafka-clients</artifactId>
+	    	<version>0.9.0.0</version>
+		</dependency>  
+		<dependency>
+			<groupId>com.feiniu.kafka.client</groupId>
+			<artifactId>fnkafkaclient</artifactId>
+			<version>0.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.avro</groupId>
+			<artifactId>avro</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.7.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.xmemcached</groupId>
+			<artifactId>xmemcached</artifactId>
+			<version>2.0.0</version>
+		</dependency>
 		<!-- Redis end -->
 		
 		<!-- json start -->
