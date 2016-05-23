@@ -89,7 +89,14 @@ public class LoginController {
 	
 	private List<SecFunction> querySecFunctionAll(){
 		List<SecFunction> funList = new ArrayList<SecFunction>();
-		// ======= 一级菜单 =========
+		systemMenu(funList);
+		reportMenu(funList);
+		jobMenu(funList);
+		return funList;
+	}
+	
+	// 系统管理菜单 add by xzeng 2016-05-23
+	private void systemMenu(List<SecFunction> funList){
 		SecFunction secFun = new SecFunction();
 		secFun.setFunctionId(1L);
 		secFun.setFunctionLevel(0);
@@ -97,14 +104,6 @@ public class LoginController {
 		secFun.setFunctionUrl("");
 		funList.add(secFun);
 		
-		secFun = new SecFunction();
-		secFun.setFunctionId(2L);
-		secFun.setFunctionLevel(0);
-		secFun.setFunctionName("统计报表");
-		secFun.setFunctionUrl("");
-		funList.add(secFun);
-		
-		// ======== 二级菜单 （一）=============
 		secFun = new SecFunction();
 		secFun.setFunctionId(11L);
 		secFun.setParentFunctionId(1L);
@@ -128,8 +127,18 @@ public class LoginController {
 		secFun.setFunctionName("订单追踪");
 		secFun.setFunctionUrl("/web_tools/takeOrderController.htm?orderTracking");
 		funList.add(secFun);
+	}
+	
+	// 报表统计菜单 add by xzeng 2016-05-23
+	private void reportMenu(List<SecFunction> funList){
+		SecFunction secFun = new SecFunction();
+		secFun = new SecFunction();
+		secFun.setFunctionId(2L);
+		secFun.setFunctionLevel(0);
+		secFun.setFunctionName("统计报表");
+		secFun.setFunctionUrl("");
+		funList.add(secFun);
 		
-		// ======== 二级菜单 （二）=============
 		secFun = new SecFunction();
 		secFun.setFunctionId(21L);
 		secFun.setParentFunctionId(2L);
@@ -144,9 +153,24 @@ public class LoginController {
 		secFun.setFunctionLevel(1);
 		secFun.setFunctionName("一级菜单（2）");
 		secFun.setFunctionUrl("");
-		
+		funList.add(secFun);
+	}
+	// 定时任务菜单 add by xzeng 2016-05-23
+	private void jobMenu(List<SecFunction> funList){
+		SecFunction secFun = new SecFunction();
+		secFun = new SecFunction();
+		secFun.setFunctionId(3L);
+		secFun.setFunctionLevel(0);
+		secFun.setFunctionName("定时任务");
+		secFun.setFunctionUrl("");
 		funList.add(secFun);
 		
-		return funList;
+		secFun = new SecFunction();
+		secFun.setFunctionId(31L);
+		secFun.setParentFunctionId(3L);
+		secFun.setFunctionLevel(1);
+		secFun.setFunctionName("任务管理");
+		secFun.setFunctionUrl("timeTaskController.htm?timeTask");
+		funList.add(secFun);
 	}
 }

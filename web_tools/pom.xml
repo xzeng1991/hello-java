@@ -43,26 +43,61 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-test</artifactId>
+    		<version>${springframework.version}</version>
+		</dependency>
 		<!-- Spring end -->
-		
+
+		<!-- DB start -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<!-- DB end -->
 		<!-- log start -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
 		</dependency>
-		<!--<dependency> 
-			<groupId>org.slf4j</groupId> 
-			<artifactId>slf4j-api</artifactId> 
-			<version>1.7.19</version> 
-		</dependency> -->
+		<!--<dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> 
+			<version>1.7.19</version> </dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.2</version>
 		</dependency>
 		<!-- log end -->
-		
+
 		<!-- Servlet start -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -82,18 +117,29 @@
 			<version>1.2</version>
 		</dependency>
 		<!-- Servlet end -->
-		
+
 		<!-- Redis start -->
-		<dependency>  
-        	<groupId>org.springframework.data</groupId>  
-        	<artifactId>spring-data-redis</artifactId>  
-        	<version>1.0.2.RELEASE</version>  
-    	</dependency>
-    	<dependency>
-	    	<groupId>org.apache.kafka</groupId>
-	    	<artifactId>kafka-clients</artifactId>
-	    	<version>0.9.0.0</version>
-		</dependency>  
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>0.9.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.11</artifactId>
+			<version>0.9.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.11</artifactId>
+			<version>0.9.0.0</version>
+			<classifier>test</classifier>
+		</dependency>
 		<dependency>
 			<groupId>com.feiniu.kafka.client</groupId>
 			<artifactId>fnkafkaclient</artifactId>
@@ -115,7 +161,7 @@
 			<version>2.0.0</version>
 		</dependency>
 		<!-- Redis end -->
-		
+
 		<!-- json start -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
@@ -129,7 +175,7 @@
 			<version>${fastjson-lib.version}</version>
 		</dependency>
 		<!-- json end -->
-		
+
 		<!-- apache common start -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -137,27 +183,27 @@
 			<version>${commons-lang3.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons-io.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-net</groupId>
-            <artifactId>commons-net</artifactId>
-            <version>3.3</version>
-        </dependency>
-         <dependency>
-            <groupId>com.jcraft</groupId>
-            <artifactId>jsch</artifactId>
-            <version>0.1.46</version>
-        </dependency>
-        <dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.46</version>
+		</dependency>
+		<dependency>
 			<groupId>net.sourceforge.jexcelapi</groupId>
 			<artifactId>jxl</artifactId>
 			<version>2.6.12</version>
 		</dependency>
 		<!-- apache common end -->
-		
+
 		<!-- Test start -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -167,4 +213,18 @@
 		</dependency>
 		<!-- Test end -->
 	</dependencies>
+	
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.1</version>
+			<configuration>
+				<source>1.7</source>
+				<target>1.7</target>
+			</configuration>
+		</plugin>
+	</plugins>
+	</build>
 </project>

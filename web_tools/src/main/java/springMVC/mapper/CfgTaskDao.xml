@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="springMVC.mapper.CfgTaskDao">
+	<resultMap id="resultMap" type="springMVC.entity.CfgTask">
+		<id column="CFG_TASK_ID" property="cfgTaskId" />
+		<result column="TASK_NAME" property="taskName" />
+		<result column="CFG_TASK_TYPE_CODE" property="cfgTaskTypeCode" />
+		<result column="TRIGGER_TYPE" property="triggerType" />
+		<result column="TRIGGER_EXPR" property="triggerExpr" />
+		<result column="PRIPORITY" property="pripority" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="TASK_STATE" property="taskState" />
+		<result column="CREATE_DATE" property="createDate" />
+		<result column="REMARKS" property="remarks" />
+		<result column="START_DATE" property="startDate" />
+		<result column="END_DATE" property="endDate" />
+		<result column="JOB_EXPR" property="jobExpr" />
+		<result column="JOB_TYPE" property="jobType" />
+		<result column="TASK_PARAMS" property="taskParams" />
+		<result column="TASK_GROUP" property="taskGroup" />
+	</resultMap>
+	
+	<sql id="Column_List">
+		CFG_TASK_ID, TASK_NAME, CFG_TASK_TYPE_CODE, TRIGGER_TYPE, TRIGGER_EXPR, PRIPORITY, CREATE_USER,
+		TASK_STATE, CREATE_DATE, REMARKS, START_DATE, END_DATE, JOB_EXPR, JOB_TYPE, TASK_PARAMS, TASK_GROUP
+	</sql>
+	
+	<insert id="addCfgTask" parameterType="springMVC.entity.CfgTask">
+		insert into cfg_task (<include refid="Column_List" />) 
+		values (#{cfgTaskId}, #{taskName}, #{cfgTaskTypeCode}, #{triggerType}, #{triggerExpr}, #{pripority}, #{createUser},
+			#{taskState}, #{createDate}, #{remarks}, #{startDate}, #{endDate}, #{jobExpr}, #{jobType}, #{taskParams}, #{taskGroup});
+	</insert>
+	
+    <update id="updateCfgTask">  
+        update cfg_task 
+        set TASK_NAME = #{taskName},
+        	TRIGGER_EXPR = #{triggerExpr},    
+            TASK_GROUP = #{taskGroup}, 
+            TASK_STATE = #{taskState}
+        where CFG_TASK_ID = #{cfgTaskId} 
+    </update> 
+    
+	<delete id="deleteCfgTask">  
+        delete from cfg_task where CFG_TASK_ID=#{cfgTaskId}  
+    </delete>
+    
+    <select id="queryCfgTaskPage" parameterType="springMVC.entity.CfgTask" resultMap="resultMap">
+		select
+		<include refid="Column_List" />
+		from cfg_task 
+		 <where>
+			<if test="cfgTaskId != null and cfgTaskId != '' ">
+				and CFG_TASK_ID =#{cfgTaskId}
+			</if>
+		</where>
+		LIMIT #{rowIndex},#{size}
+	</select>
+</mapper>
